@@ -10,13 +10,12 @@ SUPERVISED LEARNING : Train an L1-penalized SVM to classify the data. We use 5 f
 <br>
 SEMI-SUPERVISED LEARNING/ SELF-TRAINING : select 50% of the positive class along with 50% of the negative class in the training set as labeled data and the rest as unlabelled data. <br>
 STEPS --->
+1)We train an L1-penalized SVM to classify the labeled data using normalized data. Choose the penalty parameter using 5 fold cross validation.
 <br>
-1) We train an L1-penalized SVM to classify the labeled data using normalized data. Choose the penalty parameter using 5 fold cross validation.
+2)Find the unlabeled data point that is the farthest to the decision boundary of the SVM. Let the SVM label it (ignore its true label), and add it to the labeled data, and retrain the SVM. Continue this process until all unlabeled data are used. <br>
 <br>
-2)Find the unlabeled data point that is the farthest to the decision boundary of the SVM. Let the SVM label it (ignore its true label), and add it to
-the labeled data, and retrain the SVM. Continue this process until all unlabeled data are used. <br>
+UNSUPERVISED LEARNING : Run k-means algorithm on the whole training set. Ignore the labels of the data, and assume k = 2. <br>
 <br>
-UNSUPERVISED LEARNING : Run k-means algorithm on the whole training set. Ignore the labels of the data, and assume k = 2.
 STEPS ---> <br>
 1) The k-means algorithm is run multiple times, and initialized randomly.
 <br>
